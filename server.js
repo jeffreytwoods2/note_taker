@@ -23,6 +23,11 @@ app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/notes.html"))
 });
 
+// API route to get all data in db.json
+app.get("/api/notes", function (req, res) {
+    res.sendFile(path.join(__dirname, "/db/db.json"))
+});
+
 //Start server
 app.listen(PORT, function () {
     console.log("Server listening on port: " + PORT)
