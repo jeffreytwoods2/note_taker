@@ -14,13 +14,13 @@ app.use(express.json());
 //=================================================
 
 //HTML route for home page
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"))
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "/public/index.html"))
 });
 
 //HTML route to notes page
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "notes.html"))
+    res.sendFile(path.join(__dirname, "/public/notes.html"))
 });
 
 //Start server
