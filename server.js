@@ -1,6 +1,7 @@
 //Dependencies
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 //Set up Express
 const app = express();
@@ -13,20 +14,8 @@ app.use(express.json());
 //Routes
 //=================================================
 
-//HTML route for home page
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/index.html"))
-});
-
-//HTML route to notes page
-app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "/public/notes.html"))
-});
-
-// API route to get all data in db.json
-app.get("/api/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "/db/db.json"))
-});
+//HTML routes
+require("./routes/htmlRoutes")(app);
 
 //Start server
 app.listen(PORT, function () {
